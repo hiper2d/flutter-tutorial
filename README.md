@@ -1,4 +1,4 @@
-# flutter_test3
+# Net Ninja Flutter Tutorial
 
 A new Flutter project.
 
