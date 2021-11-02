@@ -4,9 +4,14 @@ void main() => runApp(const MaterialApp(
   home: Home(),
 ));
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +28,7 @@ class Home extends StatelessWidget {
           children: <Widget>[
             const Center(
               child: CircleAvatar(
-                backgroundImage: AssetImage('assets/thumb.jpeg'),
+                backgroundImage: AssetImage('assets/snuffy.jpeg'),
                 radius: 40.0,
               )
             ),
@@ -40,7 +45,7 @@ class Home extends StatelessWidget {
             ),
             const SizedBox(height: 10.0),
             const Text(
-              'Chun-Li',
+              'Snuffy',
               style: TextStyle(
                 color: Colors.amberAccent,
                 fontSize: 28.0,
@@ -50,7 +55,7 @@ class Home extends StatelessWidget {
             ),
             const SizedBox(height: 30.0),
             const Text(
-              'CURRENT NINJA LEVEL',
+              'CURRENT SEAL LEVEL',
               style: TextStyle(
                 color: Colors.grey,
                 letterSpacing: 2.0,
@@ -75,7 +80,7 @@ class Home extends StatelessWidget {
                 ),
                 SizedBox(width: 10.0),
                 Text(
-                  'chun.li@ninjas.com',
+                  'snuffy@seal.com',
                   style: TextStyle(
                     color: Color(0xFFBDBDBD), // grey[400]
                     fontSize: 18.0,
