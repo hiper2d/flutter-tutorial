@@ -12,6 +12,9 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
+  int sealLevel = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,6 +23,15 @@ class _HomeState extends State<Home> {
         centerTitle: true,
         backgroundColor: Colors.grey[850],
         elevation: 0,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            sealLevel += 1;
+          });
+        },
+        child: const Icon(Icons.add),
+        backgroundColor: Colors.grey[800],
       ),
       backgroundColor: Colors.grey[900],
       body: Padding(
@@ -62,9 +74,9 @@ class _HomeState extends State<Home> {
               )
             ),
             const SizedBox(height: 10.0),
-            const Text(
-              '8',
-              style: TextStyle(
+            Text(
+              '$sealLevel',
+              style: const TextStyle(
                 color: Colors.amberAccent,
                 fontSize: 28.0,
                 fontWeight: FontWeight.bold,
