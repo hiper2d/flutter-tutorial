@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_test3/quote.dart';
-import 'package:flutter_test3/quote_card.dart';
+import 'package:flutter_test3/quotes/quote.dart';
+import 'package:flutter_test3/quotes/quote_card.dart';
 
 void main() => runApp(const MaterialApp(
   home: QuoteList(),

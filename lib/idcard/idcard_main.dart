@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+void main() => runApp(const MaterialApp(
+  home: SealIdCard(),
+));
+
 class SealIdCard extends StatefulWidget {
   const SealIdCard({Key? key}) : super(key: key);
 

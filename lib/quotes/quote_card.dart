@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_test3/quote.dart';
+import 'package:flutter_test3/quotes/quote.dart';
 
 class QuoteCard extends StatelessWidget {
 
