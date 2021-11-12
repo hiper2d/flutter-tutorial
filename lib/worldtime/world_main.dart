@@ -4,7 +4,7 @@ import 'package:flutter_test3/worldtime/pages/home.dart';
 import 'package:flutter_test3/worldtime/pages/loading.dart';
 
 void main() => runApp(MaterialApp(
-  initialRoute: '/home',
+  initialRoute: '/',
   routes: {
     '/': (context) => const Loading(),
     '/home': (context) => const Home(),
