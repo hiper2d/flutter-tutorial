@@ -12,7 +12,6 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     Map<String, String> data = {};
     data = ModalRoute.of(context)!.settings.arguments as Map<String, String>;
-    print(data);
 
     return Scaffold(
       body: SafeArea(
