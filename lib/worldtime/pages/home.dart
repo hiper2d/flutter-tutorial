@@ -10,17 +10,41 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
+    Map<String, String> data = {};
+    data = ModalRoute.of(context)!.settings.arguments as Map<String, String>;
+    print(data);
+
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            TextButton.icon(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/location');
-                },
-                icon: const Icon(Icons.edit_location),
-                label: const Text('Home page'))
-          ],
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(0, 120.0, 0, 0),
+          child: Column(
+            children: [
+              TextButton.icon(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/location');
+                  },
+                  icon: const Icon(Icons.edit_location),
+                  label: const Text('Edit Location')),
+              const SizedBox(height: 20),
+              Row(
+                children: [
+                  Text(
+                      data['location']!,
+                      style: const TextStyle(fontSize: 28.0, letterSpacing: 2.0)
+                  )
+                ],
+                mainAxisAlignment: MainAxisAlignment.center,
+              ),
+              const SizedBox(height: 20),
+              Text(
+                data['time']!,
+                style: const TextStyle(
+                  fontSize: 60.0
+                )
+              )
+            ],
+          ),
         ),
       ),
     );

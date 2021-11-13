@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test3/worldtime/services/world_time.dart';
 
@@ -34,7 +33,11 @@ class _LoadingState extends State<Loading> {
     await worldTimeService.getTime();
     print(worldTimeService.time);
     setState(() {
-      time = worldTimeService.time;
+      Navigator.pushReplacementNamed(context, '/home', arguments: {
+        'location': worldTimeService.location,
+        'flag': worldTimeService.flag,
+        'time': worldTimeService.time,
+      });
     });
   }
 }
