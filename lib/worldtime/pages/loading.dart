@@ -16,7 +16,7 @@ class _LoadingState extends State<Loading> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      backgroundColor: Color(0xFF0D47A1), // Colors.blue[900]
+      backgroundColor: Colors.blue,
       body: Center(
         child: SpinKitSpinningLines(
           color: Colors.white,
@@ -35,12 +35,12 @@ class _LoadingState extends State<Loading> {
   void setupWorldTime() async {
     WorldTimeService worldTimeService = WorldTimeService(location: 'Berlin', flag: 'germany.png', url: 'Europe/Berlin');
     await worldTimeService.getTime();
-    print(worldTimeService.time);
     setState(() {
       Navigator.pushReplacementNamed(context, '/home', arguments: {
         'location': worldTimeService.location,
         'flag': worldTimeService.flag,
         'time': worldTimeService.time,
+        'isDateTime': worldTimeService.isDayTime,
       });
     });
   }
