@@ -46,7 +46,11 @@ class _HomeState extends State<Home> {
                   children: [
                     Text(
                         data['location']!,
-                        style: const TextStyle(fontSize: 28.0, letterSpacing: 2.0)
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 28.0,
+                          letterSpacing: 2.0,
+                        )
                     )
                   ],
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -55,7 +59,8 @@ class _HomeState extends State<Home> {
                 Text(
                   data['time']!,
                   style: const TextStyle(
-                    fontSize: 60.0
+                    color: Colors.white,
+                    fontSize: 66.0,
                   )
                 )
               ],

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:flutter_test3/worldtime/services/world_time.dart';
+import 'package:flutter_test3/worldtime/model/world_time_dto.dart';
+import 'package:flutter_test3/worldtime/services/world_time_servie.dart';
 
 class Loading extends StatefulWidget {
   const Loading({Key? key}) : super(key: key);
@@ -33,14 +34,15 @@ class _LoadingState extends State<Loading> {
   }
 
   void setupWorldTime() async {
-    WorldTimeService worldTimeService = WorldTimeService(location: 'Berlin', flag: 'germany.png', url: 'Europe/Berlin');
-    await worldTimeService.getTime();
+    WorldTime dto = WorldTime(location: 'Berlin', flag: 'germany.png', url: 'Europe/Berlin');
+    WorldTimeService worldTimeService = WorldTimeService();
+    await worldTimeService.requestTime(dto);
     setState(() {
       Navigator.pushReplacementNamed(context, '/home', arguments: {
-        'location': worldTimeService.location,
-        'flag': worldTimeService.flag,
-        'time': worldTimeService.time,
-        'isDateTime': worldTimeService.isDayTime,
+        'location': dto.location,
+        'flag': dto.flag,
+        'time': dto.time,
+        'isDateTime': dto.isDayTime,
       });
     });
   }
