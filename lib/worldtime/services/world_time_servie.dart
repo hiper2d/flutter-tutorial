@@ -12,8 +12,10 @@ class WorldTimeService {
       Map data = jsonDecode(resp.body);
       String datetime = data['datetime'];
       String offset = data['utc_offset'].substring(1, 3);
+      print(offset);
       DateTime now = DateTime.parse(datetime);
-      now.add(Duration(hours: int.parse(offset)));
+      print(data);
+      print(now);
       model.time = DateFormat.jm().format(now);
       model.isDayTime = now.hour > 6 && now.hour < 20 ? true : false;
     } catch (e) {

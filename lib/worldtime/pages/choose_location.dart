@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test3/worldtime/model/world_time_dto.dart';
+import 'package:flutter_test3/worldtime/services/world_time_servie.dart';
 
 class ChooseLocation extends StatefulWidget {
   const ChooseLocation({Key? key}) : super(key: key);
@@ -9,8 +10,6 @@ class ChooseLocation extends StatefulWidget {
 }
 
 class _ChooseLocationState extends State<ChooseLocation> {
-
-  int counter = 0;
 
   List<WorldTime> locations = [
     WorldTime(url: 'Europe/London', location: 'London', flag: 'uk.png'),
@@ -41,7 +40,7 @@ class _ChooseLocationState extends State<ChooseLocation> {
               child: Card(
                 child: ListTile(
                   onTap: () {
-
+                    updateTime(locations[index]);
                   },
                   title: Text(locations[index].location),
                   leading: CircleAvatar(
@@ -59,5 +58,16 @@ class _ChooseLocationState extends State<ChooseLocation> {
   @override
   void initState() {
     super.initState();
+  }
+
+  void updateTime(WorldTime dto) async {
+    WorldTimeService worldTimeService = WorldTimeService();
+    await worldTimeService.requestTime(dto);
+    Navigator.pop(context, {
+      'location': dto.location,
+      'flag': dto.flag,
+      'time': dto.time,
+      'isDateTime': dto.isDayTime,
+    });
   }
 }
