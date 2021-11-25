@@ -7,7 +7,7 @@ import 'package:flutter_test3/trivia/feature/number_trivia/domain/usecase/get_ra
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
-import 'number_trivia_repository_test.mocks.dart';
+import 'get_random_number_trivia_test.mocks.dart';
 
 //Generate mocks using the following command: flutter pub run build_runner build
 @GenerateMocks([NumberTriviaRepository])

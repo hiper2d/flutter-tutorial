@@ -14,4 +14,5 @@ Small projects from the [Flutter Tutorial for Beginners](https://www.youtube.com
 
 ### Learn Flutter Clean Architecture & TDD
 
-7-hour long [video](https://youtu.be/dc3B_mMrZ-Q) about Flutter app architecture
+7-hour long [video](https://youtu.be/dc3B_mMrZ-Q) about Flutter TDD app Clean Architecture.
+There is a [website](https://resocoder.com/category/tutorials/flutter/tdd-clean-architecture/) with lectures materials.
