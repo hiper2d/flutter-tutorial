@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_test3/trivia/core/error/exceptions.dart';
 import 'package:flutter_test3/trivia/core/error/failures.dart';
-import 'package:flutter_test3/trivia/core/platform/network_info.dart';
+import 'package:flutter_test3/trivia/core/network/network_info.dart';
 import 'package:flutter_test3/trivia/feature/number_trivia/data/datasource/numer_trivia_local_datasource.dart';
 import 'package:flutter_test3/trivia/feature/number_trivia/data/datasource/numer_trivia_remote_datasource.dart';
 import 'package:flutter_test3/trivia/feature/number_trivia/data/model/number_trivia_model.dart';
