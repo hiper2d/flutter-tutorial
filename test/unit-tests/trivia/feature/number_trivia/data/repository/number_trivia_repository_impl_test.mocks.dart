@@ -5,9 +5,9 @@
 import 'dart:async' as _i4;
 
 import 'package:flutter_test3/trivia/core/network/network_info.dart' as _i6;
-import 'package:flutter_test3/trivia/feature/number_trivia/data/datasource/numer_trivia_local_datasource.dart'
+import 'package:flutter_test3/trivia/feature/number_trivia/data/datasource/number_trivia_local_datasource.dart'
     as _i5;
-import 'package:flutter_test3/trivia/feature/number_trivia/data/datasource/numer_trivia_remote_datasource.dart'
+import 'package:flutter_test3/trivia/feature/number_trivia/data/datasource/number_trivia_remote_datasource.dart'
     as _i3;
 import 'package:flutter_test3/trivia/feature/number_trivia/data/model/number_trivia_model.dart'
     as _i2;
