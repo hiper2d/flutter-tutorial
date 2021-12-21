@@ -15,5 +15,17 @@ void main() {
       final result = inputConverter.stringToUnsignedInt(str);
       expect(result, const Right(123));
     });
+
+    test('should return Failure when the string is not an integer', () async {
+      const str = '123.1';
+      final result = inputConverter.stringToUnsignedInt(str);
+      expect(result, const Left(InvalidInputFailure()));
+    });
+
+    test('should return a Failure when the string is a negative number', () async {
+      const str = '-123';
+      final result = inputConverter.stringToUnsignedInt(str);
+      expect(result, const Left(InvalidInputFailure()));
+    });
   });
 }

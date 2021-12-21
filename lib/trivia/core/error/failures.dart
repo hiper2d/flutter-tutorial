@@ -4,7 +4,7 @@ abstract class Failure extends Equatable {
 
   final List<dynamic> properties;
 
-  const Failure(this.properties);
+  const Failure([this.properties = const []]);
 
   @override
   List<dynamic> get props => properties;
