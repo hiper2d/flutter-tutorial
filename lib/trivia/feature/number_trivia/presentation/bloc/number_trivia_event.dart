@@ -10,13 +10,13 @@ abstract class NumberTriviaEvent extends Equatable {
   List<dynamic> get props => properties;
 }
 
-class GetTriviaForConcreteNumberEvent extends NumberTriviaEvent {
+class GetConcreteNumberTriviaEvent extends NumberTriviaEvent {
   final String numberString;
 
-  GetTriviaForConcreteNumberEvent({required this.numberString})
+  GetConcreteNumberTriviaEvent({required this.numberString})
       : super(properties: [numberString]);
 
   get number => int.parse(numberString);
 }
 
-class GetTriviaRandomNumberEvent extends NumberTriviaEvent {}
+class GetRandomNumberTriviaEvent extends NumberTriviaEvent {}
