@@ -44,5 +44,18 @@ void main() {
       await untilCalled(mockInputConverter.stringToUnsignedInt(tNumberString));
       verify(mockInputConverter.stringToUnsignedInt(tNumberString));
     });
+
+    test('should emit [Error] when the input is invalid', () async {
+      when(mockInputConverter.stringToUnsignedInt(tNumberString))
+          .thenReturn(const Left(InvalidInputFailure()));
+
+      bloc.add(GetConcreteNumberTriviaEvent(numberString: tNumberString));
+
+      // todo: understand how to make it work
+      expectLater(bloc.state, emitsInOrder([
+        Empty(),
+        Error(message: INVALID_INPUT_FAILURE_MESSAGE)])
+      );
+    });
   });
 }
