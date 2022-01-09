@@ -6,6 +6,7 @@ import 'package:flutter_test3/trivia/feature/number_trivia/domain/entity/number_
 import 'package:meta/meta.dart';
 
 part 'number_trivia_event.dart';
+
 part 'number_trivia_state.dart';
 
 const String SERVER_FAILURE_MESSAGE = 'Server Failure';
@@ -22,13 +23,14 @@ class NumberTriviaBloc extends Bloc<NumberTriviaEvent, NumberTriviaState> {
     required this.concrete,
     required this.random,
     required this.inputConverter,
-  }): super(Empty()) {
-   on<GetConcreteNumberTriviaEvent>((event, emit) async{
-     final inputEither = inputConverter.stringToUnsignedInt(event.numberString);
-     inputEither.fold(
-             (failure) => emit(Error(message: INVALID_INPUT_FAILURE_MESSAGE)),
-             (integer) => throw UnimplementedError()
-     );
-   });
+  }) : super(Empty()) {
+    on<GetConcreteNumberTriviaEvent>((event, emit) async {
+      final inputEither = inputConverter.stringToUnsignedInt(
+          event.numberString);
+      inputEither.fold(
+              (failure) => emit(Error(message: INVALID_INPUT_FAILURE_MESSAGE)),
+              (integer) {}
+      );
+    });
   }
 }

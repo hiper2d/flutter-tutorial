@@ -35,6 +35,10 @@ void main() {
     const iNumberParsed = 1;
     const tNumberTrivia = NumberTrivia(number: 1, text: 'test');
 
+    test('should have [Empty] initial state', () {
+      expect(bloc.state, equals(Empty()));
+    });
+
     test(
         'should call the InputConverter to validate and convert string to unsigned int',
         () async {
@@ -49,13 +53,11 @@ void main() {
       when(mockInputConverter.stringToUnsignedInt(tNumberString))
           .thenReturn(const Left(InvalidInputFailure()));
 
-      bloc.add(GetConcreteNumberTriviaEvent(numberString: tNumberString));
+      expect(bloc.state, equals(Empty()));
 
-      // todo: understand how to make it work
-      expectLater(bloc.state, emitsInOrder([
-        Empty(),
-        Error(message: INVALID_INPUT_FAILURE_MESSAGE)])
-      );
+      expectLater(bloc.stream,
+          emitsInOrder([Error(message: INVALID_INPUT_FAILURE_MESSAGE)]));
+      bloc.add(GetConcreteNumberTriviaEvent(numberString: tNumberString));
     });
   });
 }
