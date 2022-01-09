@@ -2,11 +2,20 @@
 // in flutter_test3/test/unit-tests/trivia/feature/number_trivia/presentation/bloc/number_trivia_bloc_test.dart.
 // Do not manually edit this file.
 
-import 'package:dartz/dartz.dart' as _i2;
-import 'package:flutter_test3/trivia/core/error/failures.dart' as _i5;
-import 'package:flutter_test3/trivia/core/util/input_converter.dart' as _i4;
-import 'package:flutter_test3/trivia/feature/number_trivia/presentation/bloc/number_trivia_bloc.dart'
-    as _i3;
+import 'dart:async' as _i5;
+
+import 'package:dartz/dartz.dart' as _i3;
+import 'package:flutter_test3/trivia/core/error/failures.dart' as _i6;
+import 'package:flutter_test3/trivia/core/usecase/use_case.dart' as _i9;
+import 'package:flutter_test3/trivia/core/util/input_converter.dart' as _i10;
+import 'package:flutter_test3/trivia/feature/number_trivia/domain/entity/number_trivia.dart'
+    as _i7;
+import 'package:flutter_test3/trivia/feature/number_trivia/domain/repository/number_trivia_repository.dart'
+    as _i2;
+import 'package:flutter_test3/trivia/feature/number_trivia/domain/usecase/get_concrete_number_trivia.dart'
+    as _i4;
+import 'package:flutter_test3/trivia/feature/number_trivia/domain/usecase/get_random_number_trivia.dart'
+    as _i8;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: avoid_redundant_argument_values
@@ -18,50 +27,57 @@ import 'package:mockito/mockito.dart' as _i1;
 // ignore_for_file: unnecessary_parenthesis
 // ignore_for_file: camel_case_types
 
-class _FakeEither_0<L, R> extends _i1.Fake implements _i2.Either<L, R> {}
+class _FakeNumberTriviaRepository_0 extends _i1.Fake
+    implements _i2.NumberTriviaRepository {}
 
-/// A class which mocks [GetConcreteNumberTriviaEvent].
+class _FakeEither_1<L, R> extends _i1.Fake implements _i3.Either<L, R> {}
+
+/// A class which mocks [GetConcreteNumberTrivia].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockGetConcreteNumberTriviaEvent extends _i1.Mock
-    implements _i3.GetConcreteNumberTriviaEvent {
-  MockGetConcreteNumberTriviaEvent() {
+class MockGetConcreteNumberTrivia extends _i1.Mock
+    implements _i4.GetConcreteNumberTrivia {
+  MockGetConcreteNumberTrivia() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  String get numberString =>
-      (super.noSuchMethod(Invocation.getter(#numberString), returnValue: '')
-          as String);
+  _i2.NumberTriviaRepository get repository =>
+      (super.noSuchMethod(Invocation.getter(#repository),
+              returnValue: _FakeNumberTriviaRepository_0())
+          as _i2.NumberTriviaRepository);
   @override
-  List<dynamic> get properties =>
-      (super.noSuchMethod(Invocation.getter(#properties),
-          returnValue: <dynamic>[]) as List<dynamic>);
-  @override
-  List<dynamic> get props =>
-      (super.noSuchMethod(Invocation.getter(#props), returnValue: <dynamic>[])
-          as List<dynamic>);
+  _i5.Future<_i3.Either<_i6.Failure, _i7.NumberTrivia>> call(
+          {_i4.Params? params}) =>
+      (super.noSuchMethod(Invocation.method(#call, [], {#params: params}),
+          returnValue: Future<_i3.Either<_i6.Failure, _i7.NumberTrivia>>.value(
+              _FakeEither_1<_i6.Failure, _i7.NumberTrivia>())) as _i5
+          .Future<_i3.Either<_i6.Failure, _i7.NumberTrivia>>);
   @override
   String toString() => super.toString();
 }
 
-/// A class which mocks [GetRandomNumberTriviaEvent].
+/// A class which mocks [GetRandomNumberTrivia].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockGetRandomNumberTriviaEvent extends _i1.Mock
-    implements _i3.GetRandomNumberTriviaEvent {
-  MockGetRandomNumberTriviaEvent() {
+class MockGetRandomNumberTrivia extends _i1.Mock
+    implements _i8.GetRandomNumberTrivia {
+  MockGetRandomNumberTrivia() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  List<dynamic> get properties =>
-      (super.noSuchMethod(Invocation.getter(#properties),
-          returnValue: <dynamic>[]) as List<dynamic>);
+  _i2.NumberTriviaRepository get repository =>
+      (super.noSuchMethod(Invocation.getter(#repository),
+              returnValue: _FakeNumberTriviaRepository_0())
+          as _i2.NumberTriviaRepository);
   @override
-  List<dynamic> get props =>
-      (super.noSuchMethod(Invocation.getter(#props), returnValue: <dynamic>[])
-          as List<dynamic>);
+  _i5.Future<_i3.Either<_i6.Failure, _i7.NumberTrivia>> call(
+          {_i9.NoParams? params}) =>
+      (super.noSuchMethod(Invocation.method(#call, [], {#params: params}),
+          returnValue: Future<_i3.Either<_i6.Failure, _i7.NumberTrivia>>.value(
+              _FakeEither_1<_i6.Failure, _i7.NumberTrivia>())) as _i5
+          .Future<_i3.Either<_i6.Failure, _i7.NumberTrivia>>);
   @override
   String toString() => super.toString();
 }
@@ -69,16 +85,16 @@ class MockGetRandomNumberTriviaEvent extends _i1.Mock
 /// A class which mocks [InputConverter].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockInputConverter extends _i1.Mock implements _i4.InputConverter {
+class MockInputConverter extends _i1.Mock implements _i10.InputConverter {
   MockInputConverter() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i2.Either<_i5.Failure, int> stringToUnsignedInt(String? str) =>
+  _i3.Either<_i6.Failure, int> stringToUnsignedInt(String? str) =>
       (super.noSuchMethod(Invocation.method(#stringToUnsignedInt, [str]),
-              returnValue: _FakeEither_0<_i5.Failure, int>())
-          as _i2.Either<_i5.Failure, int>);
+              returnValue: _FakeEither_1<_i6.Failure, int>())
+          as _i3.Either<_i6.Failure, int>);
   @override
   String toString() => super.toString();
 }
