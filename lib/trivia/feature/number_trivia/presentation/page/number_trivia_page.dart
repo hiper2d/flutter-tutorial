@@ -59,16 +59,16 @@ class NumberTriviaPage extends StatelessWidget {
 }
 
 class MessageDisplay extends StatelessWidget {
-  String message;
+  final String message;
 
-  MessageDisplay({
+  const MessageDisplay({
     Key? key,
     required this.message,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
         height: MediaQuery.of(context).size.height / 3,
         child: Center(
           child: SingleChildScrollView(
